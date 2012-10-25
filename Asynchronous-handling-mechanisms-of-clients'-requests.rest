@@ -9,7 +9,7 @@ A method that directly contains **yield** statement always returns a **generator
 Example codes can be found in the following repository file `WebAppDIRAC/WebApp/handler/UpHandler.py
 <https://github.com/DIRACGrid/WebAppDIRAC/blob/master/WebApp/handler/UPHandler.py>`_ . Please pay attention to all methods labeled with **@asyncGen**. All these methods in their body contain a **yield** statement for assigning a task to another thread of the thread pool, and they all end with a call to the **finish** method. 
 
-.. sourcecode:: python
+.. code:: python
 
   1.     @asyncGen
   2.     def web_saveAppState( self ):
