@@ -1,0 +1,3 @@
+Welcome to the WebAppDIRAC wiki!
+
+ - `Asynchronous handling mechanisms of clients' requests <https://github.com/DIRACGrid/WebAppDIRAC/wiki/Asynchronous-handling-mechanisms-of-clients%27-requests>`_
