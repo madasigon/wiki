@@ -1,0 +1,27 @@
+Tornado as a web-server, by default, handles all requests one-by-one which means that Tornado does not handle the next request until the current one is finished. More technically, there is only one process with one thread that handles all queued requests. This server handling mechanism becomes a bottleneck concerning the fact that one request may last longer and increase the response time for each subsequent request waiting in the server queue ( or timeout occurs which means that clients are not served as expected ).
+
+Tornado provides mechanisms to handle clients' requests asynchronously. For that purpose, a dedicated library in Tornado (i.e. **tornado.gen**) provides decorators to be used in order to label methods that have to be handled asynchronously by the web-server. In our version of the web-server we provide our own decorators that use the tornado.gen library.
+
+When a method is labeled as **@asyncGen**, it must contain a **yield** statement for assigning a task (usually different method from the same or other class) to a thread from the thread pool. This **yield** statement has to be contained directly within the method labeled with **@asyncGen**, and not as part of other method embedded into the **@asyncGen** method. 
+
+A method that directly contains **yield** statement always returns a **generator** and at the beginning no code is being executed, until **next()** call is performed. The main server thread uses this generator object to control the execution of the method that have to be handled asynchronously. For more information refer to [1] [2].
+
+Example codes can be found in the following repository file: **WebAppDIRAC/WebApp/handler/UpHandler.py**. Please pay attention to all methods labeled with **@asyncGen**. All these methods in their body contain a **yield** statement for assigning a task to another thread of the thread pool, and they all end with a call to the **finish** method. 
+
+.. sourcecode:: python
+
+  1.     @asyncGen
+  2.     def web_saveAppState( self ):
+  3.       ...
+  4.       ...
+  5.       result = yield self.threadTask( up.storeVar, name, data )
+  6.       ...
+  7.       self.finish()
+
+*Explanation of the code:*
+
+If a method has to be handled asynchronously, then we are obliged to apply three important sections within the method code:
+ 
+ - First of all, we have to put the decorator **@asyncGen** **[line 1]** before the method declaration **[line 2]**. 
+ - Next, as mentioned earlier, the body of the method has to contain a **yield** statement to assign a task to a thread from the thread pool. In this particular code, the method **up.storeVar** is assigned to a thread from the thread pool. The other two parameters represent the arguments of the **up.storeVar** method **[line 5]**. 
+ - Every **@asyncGen** method has to end with a call to the **finish** method, which is needed in order to complete the client's request and send back a response to the client. This method provides an optional parameter representing the data to be returned to the client **[line 7]**. 
