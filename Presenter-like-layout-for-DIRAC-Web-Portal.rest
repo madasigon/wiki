@@ -1,1 +1,10 @@
 This is a proposal for the basic User Interface paradigm for the DIRAC Web portals.
+
+Background
+-------------
+
+The new DIRAC Web Portal framework requires also a new visual paradigm to present the rich content of various applications to users. Each application is giving access to a relatively small portion of the portal functionality. It is therefore necessary to combine in a single view access to multiple applications preselected by a user. Currently, there are two paradigms that are considered for such multi-applications views
+
+ - Desktop view where several applications are places next to each other on a single desktop area
+
+ - Tab view where each application is open in a separate tab with just one tab visible at any moment
