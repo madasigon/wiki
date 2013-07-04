@@ -25,7 +25,9 @@ The collection of images can be saved as a layout as it is done now in the deskt
 
 A click on the application image makes the full application to pop up in its maximized form. Once the application state is updated with all the available controls, the minimize button will close the full application and its icon will reflect the new state. This is pretty similar to the current Presenter pages where images can be clicked to pop up a zoomed panel with some menus. If to follow this proposal this would pop up the whole Accounting application. 
 
-Each application should then have a reduced form. This can be graphical plots for accounting, monitoring ( e.g. pie chat of job states representing JobMonitoring page ), it can be a small table with summary values ( e.g. for production monitor ). In its simplest form it can be just a static icon. Reduced applications can be put together on the desktop with titles as separate text boxes ( Title application ? ) to make the layout clearer. May be some other graphical elements can be considered to better organize the overall layout ( frames, rulers, etc ). 
+Each application should then have a reduced form. This can be graphical plots for accounting, monitoring ( e.g. pie chat of job states representing JobMonitoring page ), it can be a small table with summary values ( e.g. for production monitor ). In its simplest form it can be just a static icon. 
+
+Reduced applications can be put together on the desktop with titles as separate text boxes ( Title application ? ) to make the layout clearer. May be some other graphical elements can be considered to better organize the overall layout ( frames, rulers, images available by a URL etc ). 
 
 A single bar at the top or bottom should be retained to get the "Start" menu, setup, user identity, help button but not much more than that. A Task bar can be also provided ( with a possibility to hide it ) with buttons per open application, although this looks to be redundant. 
 
