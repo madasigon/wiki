@@ -1,0 +1,1 @@
+This is a proposal for the basic User Interface paradigm for the DIRAC Web portals.
