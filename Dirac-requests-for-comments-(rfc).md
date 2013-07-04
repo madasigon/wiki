@@ -1,0 +1,1 @@
+#1 RFC `Web Portal UI paradigm <https://github.com/DIRACGrid/WebAppDIRAC/wiki/Presenter-like-layout-for-DIRAC-Web-Portal>`_
