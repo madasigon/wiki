@@ -14,3 +14,32 @@ to quickly switch from one application to another. However, there is no way to s
 
 Proposal  
 ------------
+
+The proposal below is attempting to keep the strong points of both approaches above. 
+
+Each application has two representations. One is a full application representation with all the functionality exposed to the user, this corresponds to the current implementation of applications. The representation is a "reduced" or "overview" of the application. The reduced representation of an application is an image without a frame around it and without visible controls. The image is however reflecting the current state of the application preferably in a graphical form. The image can be automatically refreshed to follow the application state. An example of such a reduced view of an application is an accounting plot which can represent a whole Accounting application. 
+
+The "reduced" application images are placed on the desktop in a free manner. The images should be resizable freely, so it should be possible to cover the whole desktop with application images of different sizes without gaps. As a result the so constructed set of images can be seen as a "meta-application" where all the necessary functionality for the given use case ( normal user, shifter, production manager, etc ) available and visible as a whole. 
+
+The collection of images can be saved as a layout as it is done now in the desktop paradigm. There is no need to make the layout of images automatically resizable when the browser window size changes. Rather users will have different carefully crafted layout created for different screen sizes ( e.g. laptops and desktop monitors ).
+
+A click on the application image makes the full application to pop up in its maximized form. Once the application state is updated with all the available controls, the minimize button will close the full application and its icon will reflect the new state. This is pretty similar to the current Presenter pages where images can be clicked to pop up a zoomed panel with some menus. If to follow this proposal this would pop up the whole Accounting application. 
+
+Each application should then have a reduced form. This can be graphical plots for accounting, monitoring ( e.g. pie chat of job states representing JobMonitoring page ), it can be a small table with summary values ( e.g. for production monitor ). In its simplest form it can be just a static icon. Reduced applications can be put together on the desktop with titles as separate text boxes ( Title application ? ) to make the layout clearer. May be some other graphical elements can be considered to better organize the overall layout ( frames, rulers, etc ). 
+
+A single bar at the top or bottom should be retained to get the "Start" menu, setup, user identity, help button but not much more than that. A Task bar can be also provided ( with a possibility to hide it ) with buttons per open application, although this looks to be redundant. 
+
+I presume that there will be thorough users that will carefully construct such layouts for their needs. It should be possible to easily share these layouts with other users. In fact, for the users these layouts will be actually the applications that they know. 
+
+Another advantage is that particular user communities will provide their own specific applications that can be easily combined with the standard DIRAC ones making it all together rich specific community views.
+
+Technical implications
+----------------------------
+
+Each application should be coded to provide a reduced view in some standard way that can be used by the overall layout manager. This should be part of the web application framework with clear instructions for the application writers.
+
+Some applications can have customizable reduced view, e.g. with a choice which plot is representing a monitoring page.
+
+The image background color should be the same as the desktop color. In this case even if there will be gaps between the images, the overall collection will be seen as a single solid application.
+  
+ 
