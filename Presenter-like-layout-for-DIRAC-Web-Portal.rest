@@ -8,3 +8,9 @@ The new DIRAC Web Portal framework requires also a new visual paradigm to presen
  - Desktop view where several applications are places next to each other on a single desktop area
 
  - Tab view where each application is open in a separate tab with just one tab visible at any moment
+
+In the first case, several open applications are placed on the desktop with reduced sizes. This has an advantage of viewing them all at once. On the other hand the page space is polluted by numerous window frames, controls, etc. In the second case, one application is taking the whole space at any time and there is a way
+to quickly switch from one application to another. However, there is no way to see information provided by several applications at the same time.
+
+Proposal  
+------------
