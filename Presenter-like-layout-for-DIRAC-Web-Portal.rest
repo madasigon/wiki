@@ -1,3 +1,6 @@
+Author: A.Tsaregorodtsev
+Last Modified: 05.07.2013
+
 This is a proposal for the basic User Interface paradigm for the DIRAC Web portals.
 
 Background
