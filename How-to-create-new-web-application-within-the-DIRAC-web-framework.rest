@@ -80,3 +80,97 @@ Client Side
 -----------------
 
 The CS side consists of files needed for rendering the UI and communicating with the server side. Technologies used are JavaScript with ExtJS4.x, HTML and CSS. The files of the CS are located into the **static/<Module name folder such as DIRAC, LHCbDIRAC, WebAppDIRAC>** folder and are organized as follows:
+
+- **MyApp** : this folder is named after the name of the application we want to build. It contains all the files regarding this application.
+
+  - **build**: this folder contains the compiled version of the javascript files contained in the classes 
+folder
+
+  - **classes**: this folder contains the javascript file that defines the main ExtJS class representing the application on the client side.
+
+    - **MyApp.js**: this mandatory file contains the main ExtJS class representing the application on the client side. The name of the file must have the same name as the application we want to build. 
+
+  - **css**: this folder contains all the css files specific to this application.
+
+    - **MyApp.css**:  this mandatory file contains the css style needed by some of the components of the application. The name of the file must have the same name as the application we want to build. The file must be created no matter it contains some code or not.
+
+  - **images**: this folder contains all the specific images and icons needed by this application.
+
+The most important part of all files and folders is the file that contains the main ExtJS class representing the application on the client side (in our case that is MyApp.js). 
+
+This file defines a ExtJS class responsible for all client side functionality of MyApp. This class extends **Ext.dirac.core.Module** class which is the base class for all applications. The starting definition of this class is as follows:
+::
+
+  Ext.define('DIRAC.MyApp.classes.MyApp', {
+    extend : 'Ext.dirac.core.Module',
+    requires :[]
+  }); 
+
+When extending the base class, there are some mandatory methods to be implemented within the derived class:
+
+- **initComponent**: this method is called by the constructor of the application. In this method you can set up the title of the application, its width and height, its maximized state, starting position on the screen and the icon css class. Here it is suitable to set up the layout of the entire application. For further information regarding ExtJS component layouts refer to http://docs.sencha.com/extjs/4.2.1/extjs-build/examples/layout-browser/layout-browser.html.
+
+- **buildUI**: this method is used to build the user interface. Usually this is done by instantiating ExtJS widgets. These instances are added to the application in a way prescribed by the layout which is defined in the initComponent method. This method is called after all the CSS files regarding this application have been successfully loaded.
+
+- **getStateData**: The DIRAC web framework provides a generic way to save and load states of an application. This method is not mandatory, and it can be overridden by a new implementation in the application class. Whenever the user saves an application state, this method is called in order to take the data defining the current state of the application. The data has to be a JavaScript object. 
+
+- **loadState(data)**: When we want to load a state, this method is being called. As an argument the framework provides the data that have been saved previously for that state.
+
+The framework already defines handlers for some events related to the windows instances in which the applications are loaded. However there are cases when the developer would like to define some additional actions that have to be executed when those events appear.
+
+In order to access the window object containing the instance of an application, you can use the method **getContainer()**. When having a reference pointing to the window instance, you can define additional functions to be executed when some events related to the window widget appear. Namely those extra event handlers are as follow:
+
+- __dirac_activate: called in the window handler for the activate event
+
+- __dirac_beforeshow: called in the window handler for the beforeshow event
+
+- __dirac_afterrender: called in the window handler for the afterrender event
+
+- __dirac_minimize: called in the window handler for the minimize event
+
+- __dirac_maximize: called in the window handler for the maximize event
+
+- __dirac_restore: called in the window handler for the restore event
+
+- __dirac_destroy: called in the window handler for the destroy event
+
+- __dirac_boxready: called in the window handler for the boxready event
+
+- __dirac_move: called in the window handler for the move event
+
+- __dirac_resize: called in the window handler for the resize event
+
+For example, suppose we have an image shown inside an application. Suppose we want to resize the image whenever the window gets resized. So the code that we need in order to support this functionality is as follows (in the following code **this** refers to the application object):
+::
+
+  this.getContainer().__dirac_resize = function(oWindow, iWidth, iHeight, eOpts) {
+		this.__oprResizeImageAccordingToWindow(image, oWindow);
+  }
+
+DIRAC reserved variables and constants
+#######################################
+
+The DIRAC web framework provides a set of global variables and constants. These constants and variables can be accessed anywhere in the code.
+
+- **GLOBAL.APP**: A reference to the main object representing the entire framework. The most important references provided by this reference are as follows:
+
+  - **GLOBAL.APP.desktop**: A reference to the desktop object
+
+  - **GLOBAL.APP.SM**: A reference to the state management object responsible for saving, loading, managing active state, creating and loading user interface forms related to the state management.
+
+  - **GLOBAL.APP.CF**: A reference to the object providing common functions that can be used by applications.
+
+- **GLOBAL.BASE_URL**: Base URL that has to be used when requesting a service from the server.
+
+- **GLOBAL.EXTJS_VERSION**: The version of the ExtJS library
+
+- **GLOBAL.MOUSE_X**: The X coordinate of the mouse cursor relative to the top left corner of the presentation area of the browser.
+
+- **GLOBAL.MOUSE_Y**: The Y coordinate of the mouse cursor relative to the top left corner of the presentation area of the browser.
+
+- **GLOBAL.IS_IE**: An indicator whether the browser embedding the system is Internet Explorer or not.
+
+- **GLOBAL.USER_CREDENTIALS**: A reference to an object containing the user credentials.
+
+- **GLOBAL.STATE_MANAGEMENT_ENABLED**: An indicator whether the state management is available or not.
+
