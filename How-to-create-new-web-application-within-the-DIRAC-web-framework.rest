@@ -83,8 +83,7 @@ The CS side consists of files needed for rendering the UI and communicating with
 
 - **MyApp** : this folder is named after the name of the application we want to build. It contains all the files regarding this application.
 
-  - **build**: this folder contains the compiled version of the javascript files contained in the classes 
-folder
+  - **build**: this folder contains the compiled version of the javascript files contained in the classes folder
 
   - **classes**: this folder contains the javascript file that defines the main ExtJS class representing the application on the client side.
 
@@ -184,3 +183,16 @@ When building the client side, you can use some additional components that are n
 - **DiracFileLoad**: Whenever you want to load an extra JavaScript file or CSS file, but also you want to define a callback upon successful loading of the file, this is the right component for doing this.
 
 - **DiracToolButton**: This component represents a small squared button providing possibility to define menu. This button is suitable for buttons that should take small space in cases such as headers of others components. You can see an example of this component at the header of left panel of the JobMonitor.
+
+Making MyApp application
+-----------------
+
+The application we named **MyApp** is going to present some simple functionality. It is going to contain two visual parts: one with textarea and two buttons, and another part showing grid with some data generated on the server. When first button gets clicked, the value of the textarea is sent to the server and brought back to the client. When the second button gets clicked an information for a service called by the server is shown in the textarea.
+
+1. First we are going to create the SS side of the **MyApp**. Go to the **[root]/handler** and create a file named **MyAppHandler.py**. This file will define the class whose instances will serve the **MyApp** client. The class will provide two services:
+
+- **web_getData**: this method will provide random data for the grid 
+
+- **web_echoValue**: this method will return the same value that was sent together with the user request
+
+- **web_getServiceInfo**: this method will return some information about some service called from the server side. The information returned by the service is sent back to the client and shown in a textarea.
