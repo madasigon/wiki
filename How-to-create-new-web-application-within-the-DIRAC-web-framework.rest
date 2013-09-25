@@ -120,25 +120,25 @@ The framework already defines handlers for some events related to the windows in
 
 In order to access the window object containing the instance of an application, you can use the method **getContainer()**. When having a reference pointing to the window instance, you can define additional functions to be executed when some events related to the window widget appear. Namely those extra event handlers are as follow:
 
-- __dirac_activate: called in the window handler for the activate event
+- **__dirac_activate**: called in the window handler for the **activate** event
 
-- __dirac_beforeshow: called in the window handler for the beforeshow event
+- **__dirac_beforeshow**: called in the window handler for the **beforeshow** event
 
-- __dirac_afterrender: called in the window handler for the afterrender event
+- **__dirac_afterrender**: called in the window handler for the **afterrender** event
 
-- __dirac_minimize: called in the window handler for the minimize event
+- **__dirac_minimize**: called in the window handler for the **minimize** event
 
-- __dirac_maximize: called in the window handler for the maximize event
+- **__dirac_maximize**: called in the window handler for the **maximize** event
 
-- __dirac_restore: called in the window handler for the restore event
+- **__dirac_restore**: called in the window handler for the **restore** event
 
-- __dirac_destroy: called in the window handler for the destroy event
+- **__dirac_destroy**: called in the window handler for the **destroy** event
 
-- __dirac_boxready: called in the window handler for the boxready event
+- **__dirac_boxready**: called in the window handler for the **boxready** event
 
-- __dirac_move: called in the window handler for the move event
+- **__dirac_move**: called in the window handler for the **move** event
 
-- __dirac_resize: called in the window handler for the resize event
+- **__dirac_resize**: called in the window handler for the **resize** event
 
 For example, suppose we have an image shown inside an application. Suppose we want to resize the image whenever the window gets resized. So the code that we need in order to support this functionality is as follows (in the following code **this** refers to the application object):
 ::
@@ -174,3 +174,13 @@ The DIRAC web framework provides a set of global variables and constants. These 
 
 - **GLOBAL.STATE_MANAGEMENT_ENABLED**: An indicator whether the state management is available or not.
 
+Useful components
+##################
+
+When building the client side, you can use some additional components that are not part of the standard ExtJS set of components. These components were especially designed for the framework and the applications and can be found in **<Module name folder such as DIRAC, LHCbDIRAC, WebAppDIRAC>/WebApp/static/core/js/utils**:
+
+- **DiracBoxSelect**: This component looks like the standard combo-box component, but provides more functionality. Main features: supporting of multichecking, searching through the options, and making negation of the selection. You can see an example of this component within the left panel of the JobMonitor application.
+
+- **DiracFileLoad**: Whenever you want to load an extra JavaScript file or CSS file, but also you want to define a callback upon successful loading of the file, this is the right component for doing this.
+
+- **DiracToolButton**: This component represents a small squared button providing possibility to define menu. This button is suitable for buttons that should take small space in cases such as headers of others components. You can see an example of this component at the header of left panel of the JobMonitor.
