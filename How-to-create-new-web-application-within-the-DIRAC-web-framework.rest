@@ -196,3 +196,392 @@ The application we named **MyApp** is going to present some simple functionality
 - **web_echoValue**: this method will return the same value that was sent together with the user request
 
 - **web_getServiceInfo**: this method will return some information about some service called from the server side. The information returned by the service is sent back to the client and shown in a textarea.
+
+The code:
+::
+    from WebAppDIRAC.Lib.WebHandler import WebHandler
+    from DIRAC.Core.DISET.RPCClient import RPCClient
+    import random
+
+
+    class MyAppHandler(WebHandler):
+    	"""
+		The main class inherits from WebHandler
+   	"""
+	"""
+		AUTH_PROPS is constant containing (a list of) properties the client 
+		requesting a service has to have in order to use this class.
+   	"""
+	AUTH_PROPS = "authenticated"
+
+	
+	"""
+		Entry-point method for data returned to the grid
+   	"""
+	def web_getData(self):
+		data = self.__generateRandomData()
+		self.write({"result": data})
+	
+	
+	"""
+		Entry-point method to echo a value sent by the client
+   	"""
+	def web_echoValue(self):
+		value = self.request.arguments["value"][0]
+		self.write({"value": value})
+	
+	"""
+		Entry-point method to get service information.
+		This method presents how to asynchronously support 
+		the clients requests on the server side.  
+   	"""
+	@asyncGen
+	def web_getServiceInfo(self):
+    		RPC = RPCClient("WorkloadManagement/JobMonitoring")
+		result = yield self.threadTask(RPC.ping)
+    		self.finish({"info": str(result['Value'])})
+	
+	"""
+		Private method to generate random data. 
+		This method cannot be called directly by the client 
+		i.e. it is not an entry point
+   	"""
+	def __generateRandomData(self):
+		data = []
+		for n in range(50):
+			data.append({"value":random.randrange(1,100)})
+		return data
+
+2. Now we have to create the folder structure for the CS. The main folder of the **MyApp** application have to be located in a namespace folder. Let name that namespace folder **DIRAC** and place it in the **[root]/static/** folder.
+
+- WebApp
+
+  - handler
+
+    - MyAppHandler.py (already created in step 1)
+
+  - static
+
+    - DIRAC
+
+    - MyApp
+
+    - build
+
+    - classes
+
+    - css
+
+    - images
+
+Next, the folder **MyApp** should be created in the DIRAC folder together with four new sub-folders, as mentioned in the explanation before: **build**, **classes**, **css**, and **images** folder.
+
+3. After we finished creating the folder structure, we have to create some mandatory files as explained before. In the **[root]/static/DIRAC/MyApp/classes** create the file **MyApp.js** file. Similarly, create the file **MyApp.css** in the **[root]/static/DIRAC/MyApp/css** folder.
+
+4. Open the **MyApp.js**. Here we have to define the main class representing the client side of the application.
+
+First we are going to code the frame of the class:
+::
+    Ext.define('DIRAC.MyApp.classes.MyApp', {
+	extend : 'Ext.dirac.core.Module',
+    	requires :[],
+	initComponent:function(){},
+	buildUI():function(){}
+    }); 
+
+As explained before, first we have to be implement the **initComponent** and the **buildUI** methods. 
+::
+    initComponent : function() {
+
+	var me = this;
+	
+	//setting the title of the application
+	me.launcher.title = "My First Application";
+	//setting the maximized state
+	me.launcher.maximized = false;
+
+	//since the maximized state is set to false, we have to set the width and height of the window
+	me.launcher.width = 500;
+	me.launcher.height = 500;
+
+	//setting the starting position of window, loading the application	me.launcher.x = 0;
+	me.launcher.y = 0;
+	
+	//setting the main layout of this application. In this case that is the border layout
+	Ext.apply(me, {
+	    layout : 'border',
+	    bodyBorder : false,
+	    defaults : {
+		collapsible : true,
+		split : true
+	    }
+	});
+	
+	//at the end we call the initComponent of the parent ExtJS class
+	me.callParent(arguments);
+
+    }, 
+
+    buildUI : function() {
+
+	var me = this;
+	
+	/*
+		Creating the left panel.
+		Pay attention that the region config property is set up to west
+		which means that the panel will take the 
+		left side of the available area.
+	*/
+	me.leftPanel = new Ext.create('Ext.panel.Panel', {
+	    title : 'Text area',
+	    region : 'west',
+	    width : 250,
+	    minWidth : 230,
+	    maxWidth : 350,
+	    bodyPadding : 5,
+	    autoScroll : true,
+	    layout : {
+		type : 'vbox',
+		align : 'stretch',
+		pack : 'start'
+	    }	
+	});
+	
+	//creating the textarea
+	me.textArea = new Ext.create('Ext.form.field.TextArea', {
+	    fieldLabel : "Value",
+	    labelAlign : "top",
+	    flex : 1
+	});
+
+	//embedding the textarea into the left panel
+	me.leftPanel.add(me.textArea);
+
+	/*
+		Creating the docked menu with a button 
+		to send the value from the textarea to the server
+
+	*/
+	
+	//creating a button with a click handler
+	me.btnValue = new Ext.Button({
+
+	    text : 'Echo the value',
+	    margin : 1,
+	    handler : function() {
+		
+		Ext.Ajax.request({
+	    		url : GLOBAL.BASE_URL + 'MyApp/echoValue',
+	    		params : {
+				value: me.textArea.getValue()	
+	    		},
+	    		scope : me,
+	    		success : function(response) {
+
+				var me = this;
+				var response = Ext.JSON.decode(response.responseText);
+				alert("THE VALUE: "+response.value);
+	    		}
+		});
+
+	    },
+	    scope : me
+	});
+
+	// creating a button with a click handler
+	me.btnRPC = new Ext.Button({
+
+	    text : 'Service info',
+	    margin : 1,
+	    handler : function() {
+		
+		Ext.Ajax.request({
+	    		url : GLOBAL.BASE_URL + 'MyApp/getServiceInfo',
+	    		params : {
+	    		},
+	    		scope : me,
+	    		success : function(response) {
+	    		    	
+				var me = this;
+				var response = Ext.JSON.decode(response.responseText);
+				me.textArea.setValue(response.info);
+				
+	    		}
+		});
+
+	    },
+	    scope : me
+	});
+	
+	//creating the toolbar and embedding the button as an item 
+	var oPanelToolbar = new Ext.toolbar.Toolbar({
+	    dock : 'bottom',
+	    layout : {
+		pack : 'center'
+	    },
+	    items : [me.btnValue, me.btnRPC]
+	});
+	
+	/*
+		Docking the toolbar at the bottom side of the left panel
+	*/
+	me.leftPanel.addDocked([oPanelToolbar]);
+
+	/*
+		Creating the store for the grid
+		This object stores the data. 
+	*/
+	me.dataStore = new Ext.data.JsonStore({
+
+	    proxy : {
+		type : 'ajax',
+		url : GLOBAL.BASE_URL + 'MyApp/getData',
+		reader : {
+		    type : 'json',
+		    root : 'result'
+		},
+		timeout : 1800000
+	    },
+	    fields : [{
+			name : 'value',
+			type : 'int'
+    	     }],
+	    autoLoad : true,
+	    pageSize : 50,
+	    
+	});
+	
+	/*
+		Creating the grid object.
+		Pay attention that the region config property is set up to center
+		which means that the grid will take the rest of the available area.
+		Also we set the store config property to refer to the store object 
+		we created previously.
+	*/
+	me.grid = Ext.create('Ext.grid.Panel', {
+	    region : 'center',
+	    store : me.dataStore,
+	    header : false,
+	    columns : [{
+		header : 'Value',
+		sortable : true,
+		dataIndex : 'value',
+		align : 'left'
+	    }]
+	});
+	
+	/*
+		Embedding the panel and the grid within the working area of the application
+	*/
+	me.add([me.leftPanel,me.grid]);
+    }
+
+5. Throughout all the code, especially in the method buildUI, there are several components created in order to structure the user interface. Therefore, you have to append all the classes used within the **DIRAC.MyApp.classes.MyApp** requires definition. In our case the list of requires would look like:
+::
+
+  requires:   ['Ext.panel.Panel', 'Ext.form.field.TextArea', 'Ext.Button', 'Ext.toolbar.Toolbar', 'Ext.data.JsonStore', 'Ext.grid.Panel']  
+
+6. In order to have the application within the list of applications, you have to open the **web.cfg** file located into the root. There you have to add new registration line within the **Schema/Applications** section:
+::
+
+  WebApp
+  {
+    DevelopMode = True
+    Schema
+    {
+      Applications
+      {
+        Job Monitor = DIRAC.JobMonitor
+        Accounting = DIRAC.AccountingPlot
+        Configuration Manager = DIRAC.ConfigurationManager
+        File Catalog = DIRAC.FileCatalog
+        Notepad = DIRAC.Notepad
+        My First Application = DIRAC.MyApp
+      }
+      TestLink = link|http://google.com
+    }
+  }
+
+7. Now you can test the application. Before testing the application restart the server in order to enable the application within the main menu.
+
+Debugging an application
+#######################################
+
+In order to debug an application, a debugging tools are needed to be used. In **Firefox** you can install and use the **Firebug** toolset which can be also used in **Chrome** but in a light version.
+
+In **Chrome** you can use developer tools.
+
+**DIRAC** web framework provides two modes of working regarding the CS. One is the development mode, which means that the JavaScripts are loaded as are, so that they can be easily debugged. The other mode is the production mode where JavaScripts are minimized and compiled before loaded. Those JavaScripts are lighter in memory but almost useless regarding the debugging process.
+
+In order to set up the production mode, you have to set the **DevelopMode** parameter into the **web.cfg** file as shown as follows (by default this parameter is set to **True**):
+::
+
+  WebApp
+  {
+    DevelopMode = False
+
+    Schema
+    {
+      Applications
+      {
+        Job Monitor = DIRAC.JobMonitor
+        Accounting = DIRAC.AccountingPlot
+        Configuration Manager = DIRAC.ConfigurationManager
+        File Catalog = DIRAC.FileCatalog
+        Notepad = DIRAC.Notepad
+        My First Application = DIRAC.MyApp
+      }
+      TestLink = link|http://google.com
+    }
+  }
+
+Before you can use the compiled version of the JavaScript files, you have to compiled them first. For this reason you have to execute the python script **dirac-webapp-compile**. In order to run the script, you have to download and install a tool called **Sencha Cmd** ( http://www.sencha.com/products/sencha-cmd/download ). You can also refer to http://docs.sencha.com/extjs/4.2.1/#!/guide/command and read the **System Setup** section for detailed installation.  
+
+
+Inheritance of applications
+####################################### 
+
+The inheritance of an application is done in both SS and CS. In this case let suppose that we want to inherit the **MyApp** application. Let name this new application **MyNewApp**. 
+
+The procedure for creating a new application is the same one as explained in the previous section.
+
+When creating the python file, the Python class, namely **DIRAC.MyNewApp.classes.MyNewApp**, has to inherit from  **DIRAC.MyApp.classes.MyApp**. Be aware that before you can inherit, firstly you have to import the parent file. The code would look like as follows:
+::
+
+  from WebAppDIRAC.WebApp.handler.MyAppHandler import MyAppHandler
+  import random
+
+  class MyNewAppHandler(MyAppHandler):
+  
+    AUTH_PROPS = "authenticated"
+
+When creating the main JavaScript file, in this case named **MyNewApp.js**, there are two parts that differ from the obvious development.
+
+First of all, the ExtJS class to be developed, namely **DIRAC.MyNewApp.classes.MyNewApp** has to extend **DIRAC.MyApp.classes.MyApp** instead of **Ext.dirac.core.Module**.  
+
+Next, when defining the **buildUI** method, first of all the parent **buildUI** has to be called before any other changes take place.
+
+User credentials and user properties
+####################################### 
+
+For some functionalities of the applications you have to distinguish between various kind of users. For example, in the configuration manager, the whole configuration can be browsed, but also it can be managed and edited. The management functionality shall be allowed only for the users that have the property of **CSAdministrator**.
+
+On the client side, these properties of a user can be accessed via the **GLOBAL.USER_CREDENTIALS.properties** variable. On the server side the list of user properties is contained in **self.getSessionData().properties**.  
+So in the case of configuration manager, at the client side we use the following code:
+::
+
+  if (("properties" in GLOBAL.USER_CREDENTIALS) && (Ext.Array.indexOf(GLOBAL.USER_CREDENTIALS.properties, "CSAdministrator") != -1)) { …
+
+At the server side of configuration manager we did a method to check whether an user is a configuration manager or not:
+::
+
+  def __authorizeAction(self):
+    data = SessionData().getData()
+    isAuth = False
+    if "properties" in data["user"]:
+      if "CSAdministrator" in data["user"]["properties"]:
+        isAuth = True
+    return isAuth 
+
+Be aware that sometimes **properties** list is not part of the credentials object so it can be checked first for its existence before it can be used. 
+
