@@ -2,6 +2,8 @@ Welcome to the WebAppDIRAC wiki!
 
  - `Asynchronous handling mechanisms of clients' requests <https://github.com/DIRACGrid/WebAppDIRAC/wiki/Asynchronous-handling-mechanisms-of-clients%27-requests>`_
 
+ - `How to create new applications`
+
 RFC:
 ----
    `Requests For Comments <https://github.com/DIRACGrid/WebAppDIRAC/wiki/DIRAC-Requests-For-Comments-%28RFC%29>`_
