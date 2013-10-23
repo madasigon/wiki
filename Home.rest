@@ -1,12 +1,12 @@
 Welcome to the WebAppDIRAC wiki!
 
+ - `User Documentation <https://github.com/DIRACGrid/WebAppDIRAC/wiki/DIRAC-WebApp>`_
+
  - `How to create new applications <https://github.com/DIRACGrid/WebAppDIRAC/wiki/How-to-create-new-web-application-within-the-DIRAC-web-framework>`_
 
  - `Asynchronous handling mechanisms of clients' requests <https://github.com/DIRACGrid/WebAppDIRAC/wiki/Asynchronous-handling-mechanisms-of-clients%27-requests>`_
 
  - `Roadmap <https://github.com/DIRACGrid/WebAppDIRAC/wiki/Apps-to-do>`_
-
- _ `User Documentation <https://github.com/DIRACGrid/WebAppDIRAC/wiki/DIRAC-WebApp>`_
 
 RFC:
 ----
