@@ -6,13 +6,17 @@ When you first connect to it, the new WebApp interface provides you with an empt
 
 ![Empty DIRAC WebApp Desktop](images/Desktop_Empty.png)
 
-At the bottom left corner there is a "Start" button ![Start Button](images/Start_Button.png), while at the bottom right corner you will find controls to select the "Group" and "Setup" you want to use ![Identity](images/Identity_Button.png).
+At the bottom left corner there is a "Start" button:
+
+<center>![Start Button](images/Start_Button.png) </center>
+
+while at the bottom right corner you will find controls to select the "Group" and "Setup" you want to use:
+
+<center>![Identity](images/Identity_Button.png).</center>
 
 Each supported functionality is implemented as an **Application** that can be executed on your **Desktop**. Applications are launched from the "Start" button, where you can also load a previously saved state of the application (place your mouse on the application name and wait for the available states to be displayed).
 
 
-
 ***
-
 
 ![Desktop Example](images/Desktop_Example.png)
