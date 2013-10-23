@@ -6,6 +6,8 @@ Welcome to the WebAppDIRAC wiki!
 
  - `Roadmap <https://github.com/DIRACGrid/WebAppDIRAC/wiki/Apps-to-do>`_
 
+ _ `User Documentation <https://github.com/DIRACGrid/WebAppDIRAC/wiki/DIRAC-WebApp>`_
+
 RFC:
 ----
    `Requests For Comments <https://github.com/DIRACGrid/WebAppDIRAC/wiki/DIRAC-Requests-For-Comments-%28RFC%29>`_
