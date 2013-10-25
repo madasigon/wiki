@@ -117,27 +117,7 @@ When extending the base class, there are some mandatory methods to be implemente
 
 The framework already defines handlers for some events related to the windows instances in which the applications are loaded. However there are cases when the developer would like to define some additional actions that have to be executed when those events appear.
 
-In order to access the window object containing the instance of an application, you can use the method **getContainer()**. When having a reference pointing to the window instance, you can define additional functions to be executed when some events related to the window widget appear. Namely those extra event handlers are as follow:
-
-- **__dirac_activate**: called in the window handler for the **activate** event
-
-- **__dirac_beforeshow**: called in the window handler for the **beforeshow** event
-
-- **__dirac_afterrender**: called in the window handler for the **afterrender** event
-
-- **__dirac_minimize**: called in the window handler for the **minimize** event
-
-- **__dirac_maximize**: called in the window handler for the **maximize** event
-
-- **__dirac_restore**: called in the window handler for the **restore** event
-
-- **__dirac_destroy**: called in the window handler for the **destroy** event
-
-- **__dirac_boxready**: called in the window handler for the **boxready** event
-
-- **__dirac_move**: called in the window handler for the **move** event
-
-- **__dirac_resize**: called in the window handler for the **resize** event
+In order to access the window object containing the instance of an application, you can use the method **getContainer()**. 
 
 For example, suppose we have an image shown inside an application. Suppose we want to resize the image whenever the window gets resized. So the code that we need in order to support this functionality is as follows (in the following code **this** refers to the application object):
 ::
