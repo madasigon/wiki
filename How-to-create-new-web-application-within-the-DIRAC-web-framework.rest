@@ -13,7 +13,11 @@ The folder structure of the server side web installation is as follows:
 
   - WebApp
 
+    * __init__.py
+
     - **handler**: contains all the server side implementations of the framework and all the applications.
+
+      * __init__.py
 
     - **static**: contains all the static content that can be loaded by the client side such as JavaScript files, images and css files
 
