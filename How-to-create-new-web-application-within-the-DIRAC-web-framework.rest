@@ -183,7 +183,8 @@ The application we named **MyApp** is going to present some simple functionality
 
 The code:
 ::
-    from WebAppDIRAC.Lib.WebHandler import WebHandler, asyncGen
+    from WebAppDIRAC.Lib.WebHandler import WebHandler
+    from WebAppDIRAC.Lib.WebHandler import asyncGen
     from DIRAC.Core.DISET.RPCClient import RPCClient
     import random
 
