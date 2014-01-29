@@ -270,7 +270,7 @@ First we are going to code the frame of the class:
 	extend : 'Ext.dirac.core.Module',
     	requires :[],
 	initComponent:function(){},
-	buildUI():function(){}
+	buildUI:function(){}
     }); 
 
 As explained before, first we have to be implement the **initComponent** and the **buildUI** methods. 
