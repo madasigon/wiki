@@ -28,4 +28,9 @@ Advantages of the IDEs:
 
 -installation instructions can be found: [Eclipse wiki](http://wiki.eclipse.org/Eclipse/Installation)
 
+#ExtJS
+
+-download from [Sencha page] (http://www.sencha.com/products/extjs/) and un-zip it. Note if you have installed WebAppDIRAC, you can found it under WebApp/static/extjs directory.
+
+#Eclipse ExtJS
 
