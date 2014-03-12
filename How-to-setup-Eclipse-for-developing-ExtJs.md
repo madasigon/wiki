@@ -40,3 +40,11 @@ We use Indigo Eclipse and Spket plugin for developing better javascript code.
   
    1. Click Help -> Install New software… The following form Install form will appears: 
 ![InstallForm](https://zmathe.web.cern.ch/zmathe/installform.png)
+   
+   2. Click Ok -> select all components 
+   
+   3. Accept the term and conditions -> Finish
+   
+   4. Wait till the package will be downloaded and installed in case of warning click OK. 
+   
+   5. Restart Eclipse (If it will not restart automatically)
