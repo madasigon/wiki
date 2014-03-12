@@ -39,4 +39,4 @@ We use Indigo Eclipse and Spket plugin for developing better javascript code.
 * **Install Spket plugin**:
   
    1. Click Help -> Install New software… The following form Install form will appears: 
-
+![InstallForm](https://zmathe.web.cern.ch/zmathe/installform.png)
