@@ -68,6 +68,11 @@ We use Indigo Eclipse and Spket plugin for developing better javascript code.
 -in the "Configuration panel" click on the "General"->"Editors"->"File Associations"
 ![file association](https://zmathe.web.cern.ch/zmathe/spketfile.png)
 
-Please select *.js and then select Spket JavaScript Editor and click on the "Default button"
+Please select *.js and then select "Spket JavaScript Editor" and click on the "Default button"
 
+Now We propose to restart Eclipse.
+
+* **Auto-complete feature**
+After the restart you can create a javascript file and try type Ext. and **Ctrl+Space** 
+![auto-complete](https://zmathe.web.cern.ch/zmathe/spketauto.png)
 
