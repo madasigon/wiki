@@ -75,3 +75,8 @@ Now We propose to restart Eclipse.
 * **Auto-complete feature**
 After the restart you can create a javascript file and try type Ext. and **Ctrl+Space** 
 ![auto-complete](https://zmathe.web.cern.ch/zmathe/spketauto.png)
+
+# Code convention
+
+We use similar code convention to DIRAC. We have created a template used to format the code.
+You can download from [].
