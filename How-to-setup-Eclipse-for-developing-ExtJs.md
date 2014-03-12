@@ -34,3 +34,9 @@ Advantages of the IDEs:
 
 #Eclipse ExtJS
 
+We used the [DuckQuoc's blog](http://ducquoc.wordpress.com/2011/02/16/eclipse-extjs-jquery/) to set up our Eclipse. 
+We use Indigo Eclipse and Spket plugin for developing better javascript code. 
+* **Install Spket plugin**:
+  
+   1. Click Help -> Install New software… The following form Install form will appears: 
+
