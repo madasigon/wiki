@@ -1,13 +1,31 @@
-In this section we introduce the tools which can be used for developing web applications based on ExtJS. You can use different editors to write javascript code such as PICO, VI, gEdit, etc. I encourage you to do not use text editors, instead use an Integrated Development Environment (IDE). We can found various IDEs in the market. We propose to use Eclipse as it provides lot of plugins which can help for debugging or coding javascript. As well it is free.
+In this section we introduce the tools which can be used for developing web applications based on ExtJS. You can use different editors to write javascript code such as PICO, VI, gEdit, etc. I encourage you to do not use text editors, instead use an Integrated Development Environment (IDE). You can found various IDEs in the market. We propose to use Eclipse as it provides lot of plugins which can help for debugging or coding javascript. In addition it is free.
 
 # Why do not use text editors?
 
+Text editors are very code to write text, but not to write efficient code. We would like to highlight some disadvantages of the text editors:
+
+  -code quality: It is not easy to have same code style.
+
+  -auto-complete feature 
+
+  -it is not easy to manage the code
+
+Advantages of the IDEs:
+
+  -code quality: Each developer can use the save template, which means we can have an 'universal' code.
+
+  -auto-complete feature: When you type a class name and after . the IDE show the possible methods as well as a short description of the method.
+
+  -easy to manage the code.
+
+  -it is easy to create tasks: When required to change some code in the comment we can add //TODO and text. This will appears a Tasks list.
+
+  -easy to navigate between classes. etc.
 
 
 # Eclipse
 -You can download from: [Eclipse IDE](https://www.eclipse.org/‎). 
 
 -installation instructions can be found: [Eclipse wiki](http://wiki.eclipse.org/Eclipse/Installation)
-
 
 
