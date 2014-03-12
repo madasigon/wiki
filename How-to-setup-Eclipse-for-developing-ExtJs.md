@@ -34,7 +34,7 @@ Advantages of the IDEs:
 
 #Eclipse ExtJS
 
-We used the [DuckQuoc's blog](http://ducquoc.wordpress.com/2011/02/16/eclipse-extjs-jquery/) to set up our Eclipse. 
+We used the [DuckQuoc's blog](http://ducquoc.wordpress.com/2011/02/16/eclipse-extjs-jquery/) to set up our Eclipse. There is an other page when you can read about how to setup Eclipse in [Spket page](http://www.spket.com/extjs.html)
 We use Indigo Eclipse and Spket plugin for developing better javascript code. 
 * **Install Spket plugin**:
   
@@ -75,4 +75,3 @@ Now We propose to restart Eclipse.
 * **Auto-complete feature**
 After the restart you can create a javascript file and try type Ext. and **Ctrl+Space** 
 ![auto-complete](https://zmathe.web.cern.ch/zmathe/spketauto.png)
-
