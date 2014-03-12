@@ -49,7 +49,7 @@ We use Indigo Eclipse and Spket plugin for developing better javascript code.
    
    5. Restart Eclipse (If it will not restart automatically)
 
-* **Create Spket profile for ExtJs**:
+* **Create Spket profile for ExtJs (Configuration panel)**:
 
    1. Click "Eclipse" -> "Preferences…" You will see the following configuration form:
     ![spket](https://zmathe.web.cern.ch/zmathe/spket.png)
@@ -60,3 +60,14 @@ We use Indigo Eclipse and Spket plugin for developing better javascript code.
 3. Click "Add Library" select ExtJs
 
 4. Click "Add Folder" you have to add the path of the ExtJs folder (more details in <https://github.com/DIRACGrid/WebAppDIRAC/wiki/_preview#wiki-extjs>` section).
+
+* **Make default JavaScript profile**
+
+-In the same window ("Spket JavaScript Profile") click on the Extjs profile and after make it default by clicking on the "Default" button. 
+
+-in the "Configuration panel" click on the "General"->"Editors"->"File Associations"
+![file association](https://zmathe.web.cern.ch/zmathe/spketfile.png)
+
+Please select *.js and then select Spket JavaScript Editor and click on the "Default button"
+
+
