@@ -1,6 +1,6 @@
 Welcome to the WebAppDIRAC wiki!
 
- - How to setup your eclipse `<https://github.com/DIRACGrid/WebAppDIRAC/wiki/How-to-setup-Eclipse-for-developing-ExtJs>`_
+ - `How to setup your eclipse <https://github.com/DIRACGrid/WebAppDIRAC/wiki/How-to-setup-Eclipse-for-developing-ExtJs>`_
  - `User Documentation <https://github.com/DIRACGrid/WebAppDIRAC/wiki/DIRAC-WebApp>`_
 
  - `How to create new applications <https://github.com/DIRACGrid/WebAppDIRAC/wiki/How-to-create-new-web-application-within-the-DIRAC-web-framework>`_
