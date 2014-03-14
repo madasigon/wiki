@@ -1,7 +1,8 @@
 You have already prepared your eclipse. Now you can try to install DIRAC and the Web portal locally. The instruction is given for MAC OS users, but it is similar to Linux users as well. I use different directory for developing WebAppDIRAC than the directory where the portal is installed. I always copy the code from the development area to the installed area in case when I wanted to test it. The next section I will give an instruction about how to install DIRAC and WebAppDIRAC.
 
-Install DIRAC 
-###############
+Install DIRAC & WebAppDIRAC
+###########################
+
 -I propose to read the following documentation and after continue to install DIRAC (https://github.com/DIRACGrid/DIRAC/wiki/GitSetup).
 
 1. Create a directory where you will install DIRAC and WebAppDIRAC: mkdir portal; cd portal
@@ -34,5 +35,9 @@ If DIRAC properly installed, you can continue to install WebAppDIRAC.
     }
   }
 
-Install WebAppDIRAC
-####################
+10. You need the grid-certificates under etc directory. If you do not known about it, please ask the appropriate developer.
+
+11. python WebAppDIRAC/scripts/dirac-webapp-run.py -ddd
+
+12. open firefox/safari/chrome… and open the following url: https://localhost:8443/DIRAC
+
