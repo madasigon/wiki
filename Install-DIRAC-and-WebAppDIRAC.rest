@@ -2,7 +2,9 @@ You have already prepared your eclipse. Now you can try to install DIRAC and the
 
 Install DIRAC 
 ###############
+-I propose to read the following documentation and after continue to install DIRAC (https://github.com/DIRACGrid/DIRAC/wiki/GitSetup).
 
+1. Create a directory where you will install DIRAC and WebAppDIRAC
 
 Install WebAppDIRAC
 ####################
