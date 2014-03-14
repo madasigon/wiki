@@ -87,3 +87,11 @@ In order to use the template you have to import to your Spket profile:
  
 2. In the "Preferences" window select "Spket->Editors->JavaScript Editor->Formatter"
 ![extjs-codeformater](https://zmathe.web.cern.ch/zmathe/extjs-template.png).
+
+3. Click on the "Import button" 
+
+4. Apply
+
+#NOTE:
+
+If you encounter some problem, please check you java jdk. We checked jdk6 and jdk7 and we do not discovered any problem.
