@@ -80,10 +80,10 @@ After the restart you can create a javascript file and try type Ext. and **Ctrl+
 # Code convention
 
 We use similar code convention to DIRAC. We have created a template used to format the code.
-You can download from ![extjs-template](https://zmathe.web.cern.ch/zmathe/sextjs-template.xml).
+You can download from ![extjs-template](https://zmathe.web.cern.ch/zmathe/extjs-template.xml).
 In order to use the template you have to import to your Spket profile. You have to follow the following steps:
 
 1. Click "Eclipse" -> "Preferences…" 
  
 2. In the "Preferences" window select "Spket->Editors->JavaScript Editor->Formatter"
-![extjs-codeformater](https://zmathe.web.cern.ch/zmathe/sextjs-template.png).
+![extjs-codeformater](https://zmathe.web.cern.ch/zmathe/extjs-template.png).
