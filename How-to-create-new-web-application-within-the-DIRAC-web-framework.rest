@@ -569,9 +569,12 @@ At the server side of configuration manager we did a method to check whether an 
 
 Be aware that sometimes **properties** list is not part of the credentials object so it can be checked first for its existence before it can be used. 
 
-# Using predefined widgets
+Using predefined widgets
+##################
 
 DIRAC framework provides already defined widgets which can be found under (https://github.com/DIRACGrid/WebAppDIRAC/tree/integration/WebApp/static/core/js/utils). The widgets are documented: https://localhost:8443/DIRAC/static/doc/index.html or you can found the documentation in the portal(https://hostname/DIRAC/static/doc/index.html).  
 
-# Create your first example:
+Create your first example:
+##################
+
 We already prepared a simple example using predefined widgets(You can found more information https://hostname/DIRAC/static/doc/index.html and you can have a look the code in github: (https://github.com/DIRACGrid/WebAppDIRAC/tree/integration/WebApp/static/DIRAC).
