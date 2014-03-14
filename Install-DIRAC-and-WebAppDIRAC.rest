@@ -23,15 +23,16 @@ If DIRAC properly installed, you can continue to install WebAppDIRAC.
 
 9. you need to create: vi etc/dirac.cfg file and copy the following lines to this file:
 ::
-DIRAC {
-  Setup = LHCb-Development
-  #Setup = LHCb-Production
-  #Setup = LHCb-Certification
-  Configuration {
-    Servers = dips://lhcb-conf-dirac.cern.ch:9135/Configuration/Server
-    Servers += dips://lhcbprod.pic.es:9135/Configuration/Server
+
+  DIRAC {
+    Setup = LHCb-Development
+    #Setup = LHCb-Production
+    #Setup = LHCb-Certification
+    Configuration {
+      Servers = dips://lhcb-conf-dirac.cern.ch:9135/Configuration/Server
+      Servers += dips://lhcbprod.pic.es:9135/Configuration/Server
+    }
   }
-}
 
 Install WebAppDIRAC
 ####################
