@@ -22,6 +22,8 @@ If DIRAC properly installed, you can continue to install WebAppDIRAC.
 8. mkdir etc
 
 9. you need to create: vi etc/dirac.cfg file and copy the following lines to this file:
+
+
 DIRAC {
   Setup = LHCb-Development
   #Setup = LHCb-Production
