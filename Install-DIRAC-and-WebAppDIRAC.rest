@@ -1,1 +1,1 @@
-You have already prepared your eclipse. Now you can try to install DIRAC and the Web portal locally. The instruction is given for MAC OS users, but it is similar to Linux users as well. 
+You have already prepared your eclipse. Now you can try to install DIRAC and the Web portal locally. The instruction is given for MAC OS users, but it is similar to Linux users as well. I use different directory for developing WebAppDIRAC than the directory where the portal is installed. I always copy the code from the development area to the installed area in case when I wanted to test it. 
