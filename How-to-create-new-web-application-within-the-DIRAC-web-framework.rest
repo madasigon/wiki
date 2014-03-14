@@ -572,7 +572,8 @@ Be aware that sometimes **properties** list is not part of the credentials objec
 Using predefined widgets
 ##################
 
-DIRAC framework provides already defined widgets which can be found under (https://github.com/DIRACGrid/WebAppDIRAC/tree/integration/WebApp/static/core/js/utils). The widgets are documented: https://localhost:8443/DIRAC/static/doc/index.html or you can found the documentation in the portal(https://hostname/DIRAC/static/doc/index.html).  
+DIRAC framework provides already implemented widgets which can be found under (https://github.com/DIRACGrid/WebAppDIRAC/tree/integration/WebApp/static/core/js/utils). 
+More details about the widgets can be found in the developer documentation: https://localhost:8443/DIRAC/static/doc/index.html or in the portal (https://hostname/DIRAC/static/doc/index.html).  
 
 Create your first example:
 ##################
