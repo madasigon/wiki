@@ -6,22 +6,22 @@ Install DIRAC & WebAppDIRAC
 
 1. Create a directory where you will install DIRAC and WebAppDIRAC: mkdir portal; cd portal
 
-2. git clone git://github.com/zmathe/DIRAC.git (NOTE: This works when you forked the DIRAC repository). or execute: git clone https://github.com/DIRACGrid/DIRAC.git
+2. **git clone git://github.com/zmathe/DIRAC.git** (NOTE: This works when you forked the DIRAC repository). or execute: **git clone https://github.com/DIRACGrid/DIRAC.git**
 
-3. git clone git://github.com/zmathe/WebAppDIRAC.git (NOTE: This works when you forked the WebAppDIRAC repository on github)
+3. **git clone git://github.com/zmathe/WebAppDIRAC.git** (NOTE: This works when you forked the WebAppDIRAC repository on github)
 
-4. ./scripts/dirac-install -r v6r10p15 -X -t server (You can use the current production version of DIRAC which can found http://diracgrid.org.
+4. **./scripts/dirac-install -r v6r10p15 -X -t server** (You can use the current production version of DIRAC which can found http://diracgrid.org.
 If DIRAC properly installed, you can continue to install WebAppDIRAC.
 
-5. ./WebAppDIRAC/dirac-postInstall.py
+5. **./WebAppDIRAC/dirac-postInstall.py**
 
-6. source bashrc (we have to use the correct python in order to install tornado)
+6. **source bashrc** (we have to use the correct python in order to install tornado)
 
-7. pip install tornado
+7. **pip install tornado**
 
-8. mkdir etc
+8. **mkdir etc**
 
-9. you need to create: vi etc/dirac.cfg file and copy the following lines to this file:
+9. you need to create: **vi etc/dirac.cfg** file and copy the following lines to this file:
 ::
 
   DIRAC {
@@ -36,7 +36,7 @@ If DIRAC properly installed, you can continue to install WebAppDIRAC.
 
 10. You need the grid-certificates under etc directory. If you do not known about it, please ask the appropriate developer.
 
-11. python WebAppDIRAC/scripts/dirac-webapp-run.py -ddd
+11. **python WebAppDIRAC/scripts/dirac-webapp-run.py -ddd**
 
 12. open firefox/safari/chrome… and open the following url: https://localhost:8443/DIRAC
 
