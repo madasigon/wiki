@@ -15,6 +15,22 @@ If DIRAC properly installed, you can continue to install WebAppDIRAC.
 
 5. ./WebAppDIRAC/dirac-postInstall.py
 
+6. source bashrc (we have to use the correct python in order to install tornado)
+
+7. pip install tornado
+
+8. mkdir etc
+
+9. you need to create: vi etc/dirac.cfg file and copy the following lines to this file:
+DIRAC {
+  Setup = LHCb-Development
+  #Setup = LHCb-Production
+  #Setup = LHCb-Certification
+  Configuration {
+    Servers = dips://lhcb-conf-dirac.cern.ch:9135/Configuration/Server
+    Servers += dips://lhcbprod.pic.es:9135/Configuration/Server
+  }
+}
 
 Install WebAppDIRAC
 ####################
