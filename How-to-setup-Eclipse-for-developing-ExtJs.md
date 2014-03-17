@@ -94,4 +94,4 @@ In order to use the template you have to import to your Spket profile:
 
 #NOTE:
 
-If you encounter some problem, please check you java jdk. We used jdk6 and we are using jdk7 and we do not discovered any problem.
+If you encounter some problem, please check you java jdk. We tested with jdk6 and jdk7. We did not discovered any problem using those versions.
