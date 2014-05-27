@@ -579,3 +579,7 @@ Create your first example:
 ##################
 
 We already prepared a simple example using predefined widgets(You can found more information https://hostname/DIRAC/static/doc/index.html and you can have a look the code in github: (https://github.com/DIRACGrid/WebAppDIRAC/tree/integration/WebApp/static/DIRAC).
+
+NOTE: Please make sure that your application will compile. You have to use:
+
+   dirac-webapp-compile
