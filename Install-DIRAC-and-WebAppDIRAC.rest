@@ -6,7 +6,7 @@ Install DIRAC & WebAppDIRAC
 
 1. Create a directory where you will install DIRAC and WebAppDIRAC: mkdir portal; cd portal
 
-2. **git clone git://github.com/zmathe/DIRAC.git** (NOTE: This works when you forked the DIRAC repository). or execute: **git clone https://github.com/DIRACGrid/DIRAC.git**
+2. **git clone git://github.com/zmathe/DIRAC.git** (NOTE: This works when you forked the DIRAC repository). or execute: **git clone https://github.com/DIRACGrid/DIRAC.git** 
 
 3. **git clone git://github.com/zmathe/WebAppDIRAC.git** (NOTE: This works when you forked the WebAppDIRAC repository on github)
 
@@ -14,15 +14,17 @@ Install DIRAC & WebAppDIRAC
 If DIRAC properly installed, you can continue to install WebAppDIRAC.
 NOTE: In case of timeout use: ./DIRAC/Core/scripts/dirac-install.py -r v6r10p15 -X -t server -T 600000
 
-5. **./WebAppDIRAC/dirac-postInstall.py**
+5. ** python DIRAC/Core/scripts/dirac-deploy-scripts.py
 
-6. **source bashrc** (we have to use the correct python in order to install tornado)
+6. **./WebAppDIRAC/dirac-postInstall.py**
 
-7. **pip install tornado**
+7. **source bashrc** (we have to use the correct python in order to install tornado)
 
-8. **mkdir etc**
+8. **pip install tornado**
 
-9. you need to create: **vi etc/dirac.cfg** file and copy the following lines to this file:
+9. **mkdir etc**
+
+10. you need to create: **vi etc/dirac.cfg** file and copy the following lines to this file:
 ::
 
   DIRAC {
@@ -35,9 +37,8 @@ NOTE: In case of timeout use: ./DIRAC/Core/scripts/dirac-install.py -r v6r10p15 
     }
   }
 
-10. You need the grid-certificates under etc directory. If you do not known about it, please ask the appropriate developer.
+11. You need the grid-certificates under etc directory. If you do not known about it, please ask the appropriate developer.
 
-11. **python WebAppDIRAC/scripts/dirac-webapp-run.py -ddd**
+12. **python WebAppDIRAC/scripts/dirac-webapp-run.py -ddd**
 
-12. open firefox/safari/chrome… and open the following url: https://localhost:8443/DIRAC
-
+13. open firefox/safari/chrome… and open the following url: https://localhost:8443/DIRAC
