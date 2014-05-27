@@ -14,7 +14,7 @@ Install DIRAC & WebAppDIRAC
 If DIRAC properly installed, you can continue to install WebAppDIRAC.
 NOTE: In case of timeout use: ./DIRAC/Core/scripts/dirac-install.py -r v6r10p15 -X -t server -T 600000
 
-5. **python DIRAC/Core/scripts/dirac-deploy-scripts.py
+5. **python DIRAC/Core/scripts/dirac-deploy-scripts.py**
 
 6. **./WebAppDIRAC/dirac-postInstall.py**
 
