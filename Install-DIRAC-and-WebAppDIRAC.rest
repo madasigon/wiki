@@ -24,7 +24,7 @@ NOTE: In case of timeout use: ./DIRAC/Core/scripts/dirac-install.py -r v6r10p15 
 
 9. **mkdir etc**
 
-10. you need to create: **vi etc/dirac.cfg** file and copy the following lines to this file:
+10. you need to create: **vi etc/dirac.cfg** file For example (It is an LHCb specific configuration. You have to use your Configuration servers):
 ::
 
   DIRAC {
