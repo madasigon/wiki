@@ -12,7 +12,7 @@ Install DIRAC & WebAppDIRAC
 
 4. **./scripts/dirac-install -r v6r10p15 -X -t server or ./DIRAC/Core/scripts/dirac-install.py -r v6r10p15 -X -t server** (You can use the current production version of DIRAC which can found http://diracgrid.org.)
 If DIRAC properly installed, you can continue to install WebAppDIRAC.
-NOTE: In case of timeout use: ./DIRAC/Core/scripts/dirac-install.py -r v7r0-pre36 -X -t server -T 600000
+NOTE: In case of timeout use: ./DIRAC/Core/scripts/dirac-install.py -r v6r10p15 -X -t server -T 600000
 
 5. **python DIRAC/Core/scripts/dirac-deploy-scripts.py**
 
