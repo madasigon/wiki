@@ -10,9 +10,10 @@ Install DIRAC & WebAppDIRAC
 
 3. **git clone git://github.com/zmathe/WebAppDIRAC.git** (NOTE: This works when you forked the WebAppDIRAC repository on github) or git clone https://github.com/DIRACGrid/WebAppDIRAC.git
 
-4. **./scripts/dirac-install -r v6r10p15 -X -t server or ./DIRAC/Core/scripts/dirac-install.py -r v6r10p15 -X -t server** (You can use the current production version of DIRAC which can found http://diracgrid.org.)
+4. **./scripts/dirac-install -r vArBpC -X -t server or ./DIRAC/Core/scripts/dirac-install.py -r vArBpC -X -t server** (NOTE: You have to replace A, B and C with the corresponding version numbers. You can use the current production version of DIRAC which can found http://diracgrid.org.)
+
 If DIRAC properly installed, you can continue to install WebAppDIRAC.
-NOTE: In case of timeout use: ./DIRAC/Core/scripts/dirac-install.py -r v6r10p15 -X -t server -T 600000
+NOTE: In case of timeout use: ./DIRAC/Core/scripts/dirac-install.py -r vArBpC -X -t server -T 600000
 
 5. **python DIRAC/Core/scripts/dirac-deploy-scripts.py**
 
