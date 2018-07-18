@@ -41,7 +41,7 @@ NOTE: In case of timeout use: ./DIRAC/Core/scripts/dirac-install.py -r v6r21-pre
    Extensions = WebApp
   }
 
-NOTE: If you don't want to use Balancer, open WebAppDIRAC/WebApp/web.cfg and uncomment this line: #Balancer = None. 
+**NOTE: If you don't want to use Balancer, open WebAppDIRAC/WebApp/web.cfg and uncomment this line: #Balancer = None.**
 
 11. You need the grid-certificates under etc directory. If you do not known about it, please ask the appropriate developer.
 
