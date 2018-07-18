@@ -34,13 +34,14 @@ NOTE: In case of timeout use: ./DIRAC/Core/scripts/dirac-install.py -r v6r21-pre
    Configuration {
       Servers = dips://lhcb-conf-dirac.cern.ch:9135/Configuration/Server
    }
-   #Security {
-   #   CertFile = <location of hostcert.pem>
-   #   KeyFile = <location of hostkey.pem>
-   #}
+   Security {
+      CertFile = <location of hostcert.pem>
+      KeyFile = <location of hostkey.pem>
+   }
+   Extensions = WebApp
   }
 
-
+NOTE: If you don't want to use Balancer, open WebAppDIRAC/WebApp/web.cfg and uncomment this line: #Balancer = None. 
 
 11. You need the grid-certificates under etc directory. If you do not known about it, please ask the appropriate developer.
 
