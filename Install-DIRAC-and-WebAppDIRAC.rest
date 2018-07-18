@@ -10,10 +10,10 @@ Install DIRAC & WebAppDIRAC
 
 3. **git clone git://github.com/zmathe/WebAppDIRAC.git** (NOTE: This works when you forked the WebAppDIRAC repository on github) or git clone https://github.com/DIRACGrid/WebAppDIRAC.git
 
-4. **./scripts/dirac-install -r vArBpC -X -t server or ./DIRAC/Core/scripts/dirac-install.py -r vArBpC -X -t server** (NOTE: You have to replace A, B and C with the corresponding version numbers. You can use the current production version of DIRAC which can found http://diracgrid.org.)
+4. **./DIRAC/Core/scripts/dirac-install.py -r v6r21-pre1 -X -t server --dirac-os --dirac-os-version=0.0.5** (You can use the current production version of DIRAC which can found http://diracgrid.org.)
 
 If DIRAC properly installed, you can continue to install WebAppDIRAC.
-NOTE: In case of timeout use: ./DIRAC/Core/scripts/dirac-install.py -r vArBpC -X -t server -T 600000
+NOTE: In case of timeout use: ./DIRAC/Core/scripts/dirac-install.py -r v6r21-pre1 -X -t server --dirac-os --dirac-os-version=0.0.5 -T 600000
 
 5. **python DIRAC/Core/scripts/dirac-deploy-scripts.py**
 
@@ -29,14 +29,18 @@ NOTE: In case of timeout use: ./DIRAC/Core/scripts/dirac-install.py -r vArBpC -X
 ::
 
   DIRAC {
-    Setup = LHCb-Development
-    #Setup = LHCb-Production
-    #Setup = LHCb-Certification
-    Configuration {
+   #Setup = LHCb-Production
+   Setup = LHCb-Certification
+   Configuration {
       Servers = dips://lhcb-conf-dirac.cern.ch:9135/Configuration/Server
-      Servers += dips://lhcbprod.pic.es:9135/Configuration/Server
-    }
+   }
+   #Security {
+   #   CertFile = <location of hostcert.pem>
+   #   KeyFile = <location of hostkey.pem>
+   #}
   }
+
+
 
 11. You need the grid-certificates under etc directory. If you do not known about it, please ask the appropriate developer.
 
